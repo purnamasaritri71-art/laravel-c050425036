@@ -66,3 +66,5 @@ projek praktikum mata kuliah pemrograman berbasis web menggunakan framework Lara
 composer install
 php artisan migrate:fresh --seed
 php artisan serve
+
+<!-- Tes Git Pull Praktikum 6 -->
