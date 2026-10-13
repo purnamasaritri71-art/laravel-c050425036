@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\SapaController;
+use App\Http\Controllers\LatihanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -64,3 +66,32 @@ Route::get('/uji-xss', function () {
 
 Route::get('/matakuliah', [MatakuliahController::class, 'index'])->name('matakuliah.index');
 Route::get('/matakuliah/{id}', [MatakuliahController::class, 'show'])->name('matakuliah.show');
+
+//MASUK CONTROLLER MATERI #4
+
+//Praktikum 1
+Route::get('/sapa-closure', function() {
+    $nama = 'Ahmad Fauzi';
+    $pesan = "Halo, {$nama}! Ini ditulis langsung di route.";
+    return $pesan;
+});
+
+Route::get('/sapa-controller', [SapaController::class, 'index']);
+Route::get('/latihan', [LatihanController::class, 'index']);
+
+Route::get('/mahasiswa-uji', function () {
+    return view('mahasiswa.form-uji');
+});
+Route::post('/mahasiswa-uji', [MahasiswaController::class, 'store']);
+Route::get('/mahasiswa-json', [MahasiswaController::class, 'apiIndex']);
+
+Route::get('/form-cari', function () {
+    return view('mahasiswa.form-cari');
+});
+Route::get('/mahasiswa-cari', [MahasiswaController::class, 'cariMahasiswa']);
+
+Route::get('/rekap-prodi', [MahasiswaController::class, 'rekapProdi']);
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'indexMahasiswa']);
+
+Route::get('/uji-query', [MatakuliahController::class, 'ujiQuery']);

@@ -23,4 +23,9 @@ class Matakuliah extends Model
     {
         return $this->belongsTo(User::class, 'dosen_id');
     }
+
+    public function nilai()
+    {
+        return $this->hasMany(NilaiMatakuliah::class, 'matakuliah_id');
+    }
 }
